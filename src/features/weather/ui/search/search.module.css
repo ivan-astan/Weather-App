@@ -1,0 +1,30 @@
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input {
+    width: 711px;
+    height: 66px;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+    font-weight: 200;
+    font-size: 30px;
+    padding-left: 102px;
+}
+
+.input::placeholder {
+    font-weight: 200;
+    font-size: 30px;
+    color: #524E4E;
+}
+
+.search {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 52%;
+    width: 45px;
+    margin-left: 45px;
+    transform: translateY(-50%);
+}

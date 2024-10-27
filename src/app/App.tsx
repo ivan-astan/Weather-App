@@ -1,14 +1,11 @@
+import { Weather } from "@/pages/weather";
 
 function App() {
-
-
-    return (
-        <>
-            <header>
-                Weather App | Погода  °C {/* °C feature, header - widgets */}
-            </header>
-        </>
-    )
+  return (
+    <>
+      <Weather />
+    </>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 69px;
+    font-weight: normal;
+    position: relative;
+    height: 35px;
+    margin-top: -20px;
+    margin-left: 64px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: -10px;
+}
+
+.logo div {
+    margin-left: 360px;
+    font-weight: 700;
+}
