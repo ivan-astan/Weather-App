@@ -1,40 +1,13 @@
-import classes from "./card.module.css";
-import location from '@/entities/weather/assets/images/location.png'
-import temperature from '@/entities/weather/assets/images/temperature.png'
+import classes from './card.module.css'
 import cloudySun from '@/shared/assets/images/cloudy-sun.png'
 
 export const Card = () => {
-  return (
-    <div className={classes.container}>
-        <div className={classes.city}>
-            <h3>Burdwan</h3>
-            <img src={location}/>
+    return (
+        <div className={classes.container}>
+            <span className={classes.time}>1:00 am</span>
+            <img className={classes.icon} src={cloudySun}/>
+            <span className={classes.temperature}>26°</span>
+            <div className={classes.block} />
         </div>
-      
-      <div className={classes.temperature}>
-        <img className={classes.temperatureImg} src={temperature}/>
-        <h4>27°C</h4>
-        <img className={classes.weather} src={cloudySun}/>
-      </div>
-      <span className={classes.date}>Aug 23,  Tue</span>
-      <div className={classes.weatherInfo}>
-        <h5 className={classes.info}>
-          <div>Humidity</div>
-          <div>99%</div>
-        </h5>
-        <h5 className={classes.info}>
-          <div>VISIBILITY</div>
-          <div>8km</div>
-        </h5>
-        <h5 className={classes.info}>
-          <div>Air Pressure</div>
-          <div>1005hPa</div>
-        </h5>
-        <h5 className={classes.info}>
-          <div>WIND</div>
-          <div>2mph</div>
-        </h5>
-      </div>
-    </div>
-  );
-};
+    )
+}

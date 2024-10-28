@@ -1,0 +1,24 @@
+.arrow {
+    cursor: pointer;
+    position: relative;
+}
+.arrowTop{
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 16px;
+    height: 32px;
+    background-color: #000;
+    transform: rotate(-45deg);
+    border-radius: 10px;
+}
+.arrowBot{
+    top: 15px;
+    right: 0;
+    position: absolute;
+    width: 16px;
+    height: 32px;
+    background-color: #000;
+    transform: rotate(45deg);
+    border-radius: 10px;
+}

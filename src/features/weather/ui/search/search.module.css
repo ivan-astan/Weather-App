@@ -1,6 +1,9 @@
-.search-container {
+.container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .input {
@@ -22,9 +25,8 @@
 .search {
     cursor: pointer;
     position: absolute;
-    left: 0;
-    top: 52%;
     width: 45px;
-    margin-left: 45px;
+    left: 330px;
+    top: 33px;
     transform: translateY(-50%);
 }

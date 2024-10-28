@@ -1,66 +1,36 @@
 .container {
-    width: 817px;
-    height: 425px;
-    border-radius: 32px;
-    background: linear-gradient(to bottom right, #AD36CB 27%, #333333 69%);
+    width: 121px;
+    height: 130px;
+    background: linear-gradient(to bottom, #B32DD4 40%,#D9D9D9 100%);
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-.date {
-    margin-left: 28px;
-    width: 130px;
-    font-size: 20px;
-    font-weight: 500;
-    border-bottom: 1px solid #fff;
-}
-
-.city h3 {
-    font-weight: 200;
-    font-size: 30px;
-}
-
-.city {
-    display: flex;
-    margin-left: 28px;
-    align-items: center;
-}
-
-.city img {
-    width: 31px;
-    height: 31px;
-}
-
-.temperature {
-    display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.temperatureImg {
-    width: 19px;
-    height: 62px;
-}
-
-.weather {
-    width: 10%
-}
-
-.temperature h4 {
-    font-weight: 200;
-    font-size: 70px;
-    margin: 0 25px;
-}
-
-.weatherInfo {
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.block {
+    top: 59px;
+    width: 121px;
+    height: 72px;
+    background: linear-gradient(to bottom,#373333 0%, #373333 100% );
+    border-radius: 25px;
+    position: absolute;
+    bottom: 0;
+}
+.time {
+    font-size: 17px;
+    z-index: 1;
+}
+.icon {
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.temperature {
+    font-size: 21px;
+    font-weight: 200;
+    z-index: 1;
 }
