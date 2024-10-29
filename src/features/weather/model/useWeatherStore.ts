@@ -69,17 +69,23 @@ export const useWeatherStore = create<WeatherStore>()(devtools(persist((set) => 
     weather: [],
     changeLocation: async(location: string) => {
         set(state => ({...state, isFetching: true}))
-        const response: ResponseType = await geocodingAPI.getCoords(capitalize(location))
-        const data  = response[0]
-        const { setWeather } = useWeatherStore.getState();
-        await setWeather(data.lat, data.lon);
-        set(state => ({...state, location: data.name,lat: data.lat, lon: data.lon, isFetching: false }))
+        try {
+            const response: ResponseType = await geocodingAPI.getCoords(capitalize(location))
+            const data  = response[0]
+            const { setWeather } = useWeatherStore.getState();
+            await setWeather(data.lat, data.lon);
+            set(() => ({location: data.name,lat: data.lat, lon: data.lon }))
+        }
+        finally {
+            set(() => ({isFetching: false}))
+        }
+
     },
         changeTemperature: (temperatureUnit: TemperatureType) =>
-            set((state) => ({ ...state, temperatureUnit })),
+            set(() => ({  temperatureUnit })),
         setWeather: async(lat:number, lon:number) =>{
             const response = await weatherAPI.getWeather(lat, lon)
-            set((state) => ({...state, weather: response.list}))
+            set(() => ({ weather: response.list}))
         }
 }),
 

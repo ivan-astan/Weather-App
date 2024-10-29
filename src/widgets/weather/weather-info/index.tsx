@@ -1,17 +1,29 @@
 import classes from './weather.module.css'
 import {Card} from "@/entities/weather/card";
-import {useWeatherStore} from "@/features/weather";
+import {useWeatherStore, Weather} from "@/features/weather";
 import {formatDate} from "@/shared";
 
 export const WeatherInfo = () => {
-    const weather = useWeatherStore(state => state.weather)
+    const weatherState = useWeatherStore(state => state.weather)
+
     const temperatureUnit = useWeatherStore(state => state.temperatureUnit)
-    const lastIndex = weather.findIndex(weather => formatDate(weather.dt) === '00:00')
-    return weather[0] ?(
+    const weather = weatherState.reduce<Weather[][]>((acc, current) => {
+        if (current.dt === 1730246400) {
+            acc.push([current]);
+        } else if (acc.length > 0) {
+            acc[acc.length - 1].push(current);
+        } else {
+            acc.push([current]);
+        }
+        return acc;
+    }, []);
+    console.log(weatherState)
+    console.log(weather)
+    return weather[0] ? (
         <div className={classes.container}>
-            {weather.map((weather, i) => {
+            {weather[0].map(weather => {
                 const time = formatDate(weather.dt)
-                    return i <= lastIndex ? <Card time={time} temperatureUnit={temperatureUnit} weather={weather}/> : null
+                    return <Card key={weather.dt_txt} time={time} temperatureUnit={temperatureUnit} weather={weather}/>
                 }
             )}
         </div>
