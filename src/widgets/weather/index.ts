@@ -1,1 +1,1 @@
-export { UserInputs } from "./user-inputs";
+export { UserInputs } from './user-inputs';

@@ -29,7 +29,7 @@
     border-radius: 22px;
 }
 
-.slider:before {
+.switcher {
     position: absolute;
     content: "";
     height: 25px;
@@ -39,10 +39,6 @@
     background-color: #181515;
     transition: .4s;
     border-radius: 50%;
-}
-
-input:checked+.slider:before {
-    transform: translateX(60px);
 }
 
 .temperature {

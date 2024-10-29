@@ -4,7 +4,9 @@ import {Carousel} from "@/widgets/weather/carousel";
 import {WeatherInfo} from "@/widgets/weather/weather-info";
 
 
+
 export const Weather = () => {
+
   return (
       <div>
         <Header />
