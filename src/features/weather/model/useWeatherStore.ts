@@ -5,11 +5,16 @@ import {capitalize} from "@/shared/utils";
 import {weatherAPI} from "@/features/weather/api/weather";
 
 export type TemperatureType = 'C' | 'F';
-type TemperatureStore = {
-    temperature: TemperatureType,
+type WeatherStore = {
+    temperatureUnit: TemperatureType,
     weather: Weather[]
     changeTemperature: (temperature: TemperatureType) => void;
     setWeather: (lat: number, lon: number) => void;
+    location: string,
+    lat: number,
+    lon: number,
+    changeLocation: (location: string) => void,
+    isFetching: boolean
 };
 export type Weather = {
     clouds: {
@@ -41,12 +46,7 @@ export type Weather = {
 
     }
 }
-type LocationStore = {
-    location: string,
-    lat: number,
-    lon: number,
-    changeLocation: (location: string) => void
-}
+
 type ResponseType = {
     [key: number]: {
         country: string,
@@ -60,21 +60,23 @@ type ResponseType = {
     }
 }
 
-export const useWeatherStore = create<LocationStore & TemperatureStore>()(devtools(persist((set) => ({
+export const useWeatherStore = create<WeatherStore>()(devtools(persist((set) => ({
         location: '',
-        temperature: 'C',
+        isFetching: false,
+        temperatureUnit: 'C',
         lat: 0,
         lon: 0,
     weather: [],
     changeLocation: async(location: string) => {
+        set(state => ({...state, isFetching: true}))
         const response: ResponseType = await geocodingAPI.getCoords(capitalize(location))
         const data  = response[0]
         const { setWeather } = useWeatherStore.getState();
         await setWeather(data.lat, data.lon);
-        set(state => ({...state, location: data.name,lat: data.lat, lon: data.lon }))
+        set(state => ({...state, location: data.name,lat: data.lat, lon: data.lon, isFetching: false }))
     },
-        changeTemperature: (temperature: TemperatureType) =>
-            set((state) => ({ ...state, temperature })),
+        changeTemperature: (temperatureUnit: TemperatureType) =>
+            set((state) => ({ ...state, temperatureUnit })),
         setWeather: async(lat:number, lon:number) =>{
             const response = await weatherAPI.getWeather(lat, lon)
             set((state) => ({...state, weather: response.list}))
