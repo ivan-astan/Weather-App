@@ -1,7 +1,7 @@
 .container {
     margin-top: 20px;
-    width: 817px;
-    height: 425px;
+    width: 80%;
+    height: 30%;
     border-radius: 32px;
     background: linear-gradient(to bottom right, #AD36CB 27%, #333333 69%);
     display: flex;
