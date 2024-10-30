@@ -7,9 +7,22 @@ export const kelvinToCelsius = (deg: number) => {
 export const kelvinTofahrenheit = (deg: number) => {
     return Math.round((deg-273.15) * (5/9) + 32)
 }
-export const formatDate = (timestamp: number) => {
+export const formatDateToTime = (timestamp: number) => {
     const date = new Date(timestamp * 1000); // Преобразуем в миллисекунды
     const hours = String(date.getUTCHours()).padStart(2, '0'); // Получаем часы
     const minutes = String(date.getUTCMinutes()).padStart(2, '0');
     return `${hours}:${minutes}`
+}
+export const  formatDateTime = (dateTime: string) => {
+    const date = new Date(dateTime);
+
+    const options: Intl.DateTimeFormatOptions = {
+        day: '2-digit',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    };
+
+    return date.toLocaleString('en-GB', options).replace(/ at /, ', ');
 }

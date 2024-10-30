@@ -68,7 +68,7 @@ export const useWeatherStore = create<WeatherStore>()(devtools(persist((set) => 
         lon: 0,
     weather: [],
     changeLocation: async(location: string) => {
-        set(state => ({...state, isFetching: true}))
+        set(() => ({ isFetching: true}))
         try {
             const response: ResponseType = await geocodingAPI.getCoords(capitalize(location))
             const data  = response[0]

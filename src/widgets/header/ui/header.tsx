@@ -10,7 +10,8 @@ export const Header = () => {
       <div className={classes.logo}>
         <img src={icon} alt="cloudy" />
         <h1>Weather App</h1>
-        <div>21:00 pm </div>
+        <div>
+            Your reliable assistant in weather planning!</div>
       </div>
       <Navigator />
     </header>

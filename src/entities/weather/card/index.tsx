@@ -2,7 +2,7 @@ import classes from './card.module.css'
 import cloudySun from '@/shared/assets/images/cloudy-sun.png'
 import {TemperatureType, Weather} from "@/features/weather";
 import {FC} from "react";
-import {kelvinToCelsius, kelvinTofahrenheit, formatDate} from "@/shared";
+import {kelvinToCelsius, kelvinTofahrenheit} from "@/shared";
 
 type Props = {
     weather: Weather

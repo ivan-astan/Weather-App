@@ -4,7 +4,7 @@ import cloudySun from '@/shared/assets/images/cloudy-sun.png'
 import temperatureIcon from '@/entities/weather/assets/images/temperature.png'
 import {TemperatureType, Weather} from "@/features/weather";
 import {FC} from "react";
-import {kelvinToCelsius, kelvinTofahrenheit} from "@/shared";
+import {kelvinToCelsius, kelvinTofahrenheit, formatDateTime} from "@/shared";
 
 type Props = {
     temperatureUnit: TemperatureType
@@ -24,7 +24,7 @@ export const CarouselCard: FC<Props> = ({temperatureUnit, location, weather}) =>
         <h4>{temperatureUnit === 'F' ? kelvinTofahrenheit(weather.main.temp) : kelvinToCelsius(weather.main.temp) }°{temperatureUnit}</h4>
         <img alt='weather img' className={classes.weather} src={cloudySun}/>
       </div>
-      <span className={classes.date}>{weather.dt_txt}</span>
+      <span className={classes.date}>{formatDateTime(weather.dt_txt)}</span>
       <div className={classes.weatherInfo}>
         <h5 className={classes.info}>
           <div>Humidity</div>
