@@ -40,12 +40,11 @@
 }
 
 .temperatureImg {
-    width: 19px;
-    height: 62px;
+    width: 3%;
 }
 
 .weather {
-    width: 10%
+    width: 20%
 }
 
 .temperature h4 {
