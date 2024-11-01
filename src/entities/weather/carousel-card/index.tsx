@@ -41,7 +41,7 @@ export const CarouselCard: FC<Props> = ({temperatureUnit, location, weather}) =>
         </h5>
         <h5 className={classes.info}>
           <div>WIND</div>
-          <div>{weather.wind.speed}ms</div>
+          <div>{weather.wind.speed}m/s</div>
         </h5>
       </div>
     </div>

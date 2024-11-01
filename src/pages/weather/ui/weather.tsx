@@ -11,7 +11,7 @@ export const Weather = () => {
     const isFetching = useWeatherStore(state => state.isFetching)
   return (
       <div>
-        <Header />
+        <Header description={'Your reliable assistant in weather planning!'} header={'weather'}/>
           {isFetching ? <Preloader /> : <><UserInputs />
               <Carousel />
               <WeatherInfo/>

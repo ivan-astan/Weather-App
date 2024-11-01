@@ -1,18 +1,23 @@
 import { Navigator } from "@/features/weather";
 import classes from "./header.module.css";
+import {FC} from "react";
+import {capitalize} from "@/shared";
 
-
-export const Header = () => {
+type Props = {
+    header: string;
+    description: string;
+}
+export const Header: FC<Props> = ({header, description}) => {
   return (
 
     <header className={classes.header}>
       <div className={classes.logo}>
-        <img src={'https://openweathermap.org/img/wn/02d@4x.png'} alt="cloudy" />
-        <h1>Weather App</h1>
+        <img src={header === 'weather' ? 'https://openweathermap.org/img/wn/02d@4x.png' : ''} alt={header === 'weather' ? 'cloudy' : ''} />
+        <h1>{capitalize(header)} App</h1>
         <div>
-            Your reliable assistant in weather planning!</div>
+            {description}</div>
       </div>
-      <Navigator />
+      <Navigator header={header}/>
     </header>
 
 

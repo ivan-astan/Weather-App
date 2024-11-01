@@ -7,7 +7,7 @@ export const UserInputs = () => {
     return (
         <div className={classes.container}>
            <TemperatureSelect />
-           <Search />
+           <Search placeholder={'Search location...'}/>
         </div>
     )
 }

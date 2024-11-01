@@ -1,18 +1,29 @@
-import { useState } from "react";
+import {FC, useState} from "react";
 import classes from "./navigator.module.css";
-export const Navigator = () => {
-  const [active, setActive] = useState("Weather");
+import {useNavigate} from "react-router-dom";
+type Props = {
+    header: string
+}
+export const Navigator: FC<Props> = ({header}) => {
+  const [active, setActive] = useState(header);
+  const navigate = useNavigate()
   return (
     <nav className={classes.nav}>
       <div
-        onClick={() => setActive("Weather")}
-        className={active === "Weather" ? classes.active : ""}
+        onClick={() => {
+            setActive("weather")
+            navigate('/weather')
+        }}
+        className={active === "weather" ? classes.active : ""}
       >
-        Today
+        Weather
       </div>
       <div
-        onClick={() => setActive("News")}
-        className={active === "News" ? classes.active : ""}
+        onClick={() => {
+            setActive("news")
+            navigate('/news')
+        }}
+        className={active === "news" ? classes.active : ""}
       >
           News
       </div>

@@ -13,7 +13,6 @@ export const Carousel  = () => {
     const temperatureUnit = useWeatherStore(state => state.temperatureUnit)
     const location = useWeatherStore(state => state.location)
     const weather = useWeatherStore(state => state.weather)
-    console.log(weather)
     return weather[time] ? (
         <div className={classes.carouselContainer}>
             <div className={classes.carousel}>
@@ -24,7 +23,7 @@ export const Carousel  = () => {
                 <CarouselCard weather={weather[time]} location={location} temperatureUnit={temperatureUnit}/>
                 {time < weather.length - 1 && <ArrowForward onClick={()=>{
                     changeTime(time + 1)
-                    if (formatDateToTime(weather[time].dt) === '00:00') incrementDay()
+                    if (formatDateToTime(weather[time].dt) === '21:00') incrementDay()
                 }}/>}
             </div>
         </div>
