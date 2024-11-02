@@ -1,10 +1,10 @@
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import classes from './navigator.module.css';
 import { useNavigate } from 'react-router-dom';
 type Props = {
     header: string;
 };
-export const Navigator: FC<Props> = ({ header }) => {
+export const Navigator: FC<Props> = memo(({ header }) => {
     const [active, setActive] = useState(header);
     const navigate = useNavigate();
     return (
@@ -29,4 +29,4 @@ export const Navigator: FC<Props> = ({ header }) => {
             </div>
         </nav>
     );
-};
+});

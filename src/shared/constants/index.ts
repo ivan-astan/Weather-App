@@ -3,4 +3,4 @@ export const BASE_GEO_URL = `http://api.openweathermap.org/geo/1.0/direct?appid=
 export const BASE_WEATHER_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${WEATHER_API_KEY}`;
 
 const NEWS_API_KEY = '55ac01c7f46642a5b1794efd893cdb6a';
-export const BASE_NEWS_URL = `https://api.worldnewsapi.com/search-news?api-key=${NEWS_API_KEY}`;
+export const BASE_NEWS_URL = `https://api.worldnewsapi.com/search-news?api-key=${NEWS_API_KEY}&number=50`;

@@ -1,6 +1,6 @@
 import classes from './card.module.css';
 import { TemperatureType, Weather } from '@/features/weather';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { kelvinToCelsius, kelvinTofahrenheit } from '@/shared';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
     temperatureUnit: TemperatureType;
     time: string;
 };
-export const Card: FC<Props> = ({ weather, temperatureUnit, time }) => {
+export const Card: FC<Props> = memo(({ weather, temperatureUnit, time }) => {
     const temperature =
         temperatureUnit === 'C'
             ? kelvinToCelsius(weather.main.temp)
@@ -22,4 +22,4 @@ export const Card: FC<Props> = ({ weather, temperatureUnit, time }) => {
             <div className={classes.block} />
         </div>
     );
-};
+});

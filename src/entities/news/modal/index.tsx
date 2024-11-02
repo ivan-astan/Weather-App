@@ -1,12 +1,12 @@
 import classes from './modal.module.css';
 import { News } from '@/features/news';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { formatDateTime } from '@/shared';
 type Props = {
     news: News;
     onClose: () => void;
 };
-export const ModalNews: FC<Props> = ({ news, onClose }) => {
+export const ModalNews: FC<Props> = memo(({ news, onClose }) => {
     const handleModalClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
     };
@@ -36,4 +36,4 @@ export const ModalNews: FC<Props> = ({ news, onClose }) => {
             </div>
         </div>
     );
-};
+});

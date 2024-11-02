@@ -1,13 +1,13 @@
 import classes from './card.module.css';
 import { formatDateTime } from '@/shared';
 import { News } from '@/features/news';
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { ModalNews } from '@/entities/news';
 
 type Props = {
     news: News;
 };
-export const NewsCard: FC<Props> = ({ news }) => {
+export const NewsCard: FC<Props> = memo(({ news }) => {
     const [modal, setModal] = useState(false);
     return (
         <>
@@ -24,4 +24,4 @@ export const NewsCard: FC<Props> = ({ news }) => {
             {modal && <ModalNews news={news} onClose={() => setModal(false)} />}
         </>
     );
-};
+});

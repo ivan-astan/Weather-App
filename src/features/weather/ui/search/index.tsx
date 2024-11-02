@@ -1,7 +1,7 @@
 import classes from './search.module.css';
 import search from '@/shared/assets/images/search-icon.png';
 import { useForm } from 'react-hook-form';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 type Props = {
     placeholder: string;
@@ -11,7 +11,7 @@ type Props = {
 type FormType = {
     value: string;
 };
-export const Search: FC<Props> = ({ placeholder, value, onSubmit }) => {
+export const Search: FC<Props> = memo(({ placeholder, value, onSubmit }) => {
     const { register, handleSubmit } = useForm<FormType>({
         defaultValues: {
             value,
@@ -39,4 +39,4 @@ export const Search: FC<Props> = ({ placeholder, value, onSubmit }) => {
             />
         </form>
     );
-};
+});
