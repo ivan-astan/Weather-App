@@ -2,7 +2,7 @@
     cursor: pointer;
     position: relative;
 }
-.arrowTop{
+.arrowTop {
     top: 0;
     right: 0;
     position: absolute;
@@ -12,7 +12,7 @@
     transform: rotate(-45deg);
     border-radius: 10px;
 }
-.arrowBot{
+.arrowBot {
     top: -15px;
     right: 0;
     position: absolute;

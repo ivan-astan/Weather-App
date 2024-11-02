@@ -24,20 +24,20 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, #33E017 0%, #1E1E1E 100%);
-    transition: .4s;
+    background: linear-gradient(to right, #33e017 0%, #1e1e1e 100%);
+    transition: 0.4s;
     border-radius: 22px;
 }
 
 .switcher {
     position: absolute;
-    content: "";
+    content: '';
     height: 25px;
     width: 25px;
     left: 2px;
     bottom: 2px;
     background-color: #181515;
-    transition: .4s;
+    transition: 0.4s;
     border-radius: 50%;
 }
 

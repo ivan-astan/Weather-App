@@ -1,34 +1,42 @@
-import classes from "./search.module.css";
-import search from "@/shared/assets/images/search-icon.png";
-import {useForm} from "react-hook-form";
-import {useWeatherStore} from "@/features/weather";
-import {FC} from "react";
+import classes from './search.module.css';
+import search from '@/shared/assets/images/search-icon.png';
+import { useForm } from 'react-hook-form';
+import { FC } from 'react';
 
 type Props = {
-    placeholder: string
-}
+    placeholder: string;
+    value: string;
+    onSubmit: (value: string) => void;
+};
 type FormType = {
-    location: string
-}
-export const Search: FC<Props> = ({placeholder}) => {
-    const location = useWeatherStore (state => state.location)
-    const changeLocation = useWeatherStore(state => state.changeLocation)
+    value: string;
+};
+export const Search: FC<Props> = ({ placeholder, value, onSubmit }) => {
     const { register, handleSubmit } = useForm<FormType>({
         defaultValues: {
-            location
-        }
+            value,
+        },
     });
     const submit = (data: FormType) => {
-        changeLocation(data.location)
-    }
+        onSubmit(data.value);
+    };
     const handleImageClick = () => {
         handleSubmit(submit)();
     };
-  return (
-    <form onSubmit={handleSubmit(submit)} className={classes.container}>
-      <input className={classes.input} placeholder={placeholder} autoComplete="off" {...register('location')}/>
+    return (
+        <form onSubmit={handleSubmit(submit)} className={classes.container}>
+            <input
+                className={classes.input}
+                placeholder={placeholder}
+                autoComplete="off"
+                {...register('value')}
+            />
 
-      <img className={classes.search} src={search} onClick={handleImageClick} />
-    </form>
-  );
+            <img
+                className={classes.search}
+                src={search}
+                onClick={handleImageClick}
+            />
+        </form>
+    );
 };

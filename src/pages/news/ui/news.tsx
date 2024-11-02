@@ -1,15 +1,25 @@
-import {Header} from "@/widgets/header/ui";
-import {Preloader} from "@/shared";
-import {Search} from "@/features/weather/ui/search";
-
+import { Header } from '@/widgets/header/ui';
+import { Preloader } from '@/shared';
+import { NewsInput } from '@/features/news';
+import { NewsContainer } from '@/features/news';
 
 export const News = () => {
-    const isFetching = false
+    const isFetching = false;
 
     return (
         <>
-            <Header description={'Your reliable source of current news!'} header={'news'}/>
-            {isFetching ? <Preloader /> : <Search placeholder={'Search news...'}/>})
+            <Header
+                description={'Your reliable source of current news!'}
+                header={'news'}
+            />
+            {isFetching ? (
+                <Preloader />
+            ) : (
+                <>
+                    <NewsInput />
+                    <NewsContainer />
+                </>
+            )}
         </>
-    )
-}
+    );
+};

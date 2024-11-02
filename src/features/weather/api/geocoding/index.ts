@@ -1,18 +1,22 @@
-import {BASE_GEO_URL} from "@/shared/constants";
+import { BASE_GEO_URL } from '@/shared/constants';
 
 export const geocodingAPI = {
-    getCoords: async(location: string) => {
+    getCoords: async (location: string) => {
         try {
-            const response = await fetch(`${BASE_GEO_URL}&q=${location.trim()}`);
+            const response = await fetch(
+                `${BASE_GEO_URL}&q=${location.trim()}`
+            );
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return await response.json();
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error(
+                'There was a problem with the fetch operation:',
+                error
+            );
             throw error;
-            return
+            return;
         }
-
-    }
+    },
 };

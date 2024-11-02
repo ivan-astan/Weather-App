@@ -8,7 +8,6 @@ import typescriptEslint from '@typescript-eslint/eslint-plugin';
 
 export default [
     {
-
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
             ecmaVersion: 2020,
@@ -20,9 +19,9 @@ export default [
         plugins: {
             'react-hooks': reactHooks,
             'react-refresh': reactRefresh,
-            'react': pluginReact,
+            react: pluginReact,
             '@typescript-eslint': typescriptEslint,
-            'prettier': eslintPluginPrettier,
+            prettier: eslintPluginPrettier,
         },
         rules: {
             // Recommended rules from TypeScript, React, and ESLint
@@ -39,5 +38,5 @@ export default [
             'no-console': 'warn',
             ...js.configs.recommended.rules,
         },
-    }
+    },
 ];

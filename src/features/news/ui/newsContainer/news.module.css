@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    padding: 2%;
+    grid-template-columns: 23% 23% 23% 23%;
+    gap: 2%;
+}

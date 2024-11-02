@@ -1,0 +1,42 @@
+.modal {
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+.img {
+    align-self: center;
+    width: 80%;
+}
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 1%;
+    height: 50%;
+    border-radius: 32px;
+    background: linear-gradient(to bottom right, #ad36cb 27%, #333333 69%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container h2 {
+    font-weight: 200;
+    font-size: 30px;
+}
+.textContainer {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
