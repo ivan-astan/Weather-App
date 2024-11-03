@@ -33,7 +33,7 @@ export const useNewsStore = create<NewsStore>()(
                         const response = await newsAPI.getNews(topic);
                         set(() => ({
                             news: splitArrayIntoChunks(response?.news, 8),
-                            pages: Math.floor((response?.news.length || 0) / 8),
+                            pages: Math.ceil((response?.news.length || 0) / 8),
                             page: 1,
                         }));
                     } finally {
